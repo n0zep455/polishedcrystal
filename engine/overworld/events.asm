@@ -1330,6 +1330,14 @@ GetContestLocations:
 	scf
 	ret nz
 
+	ld hl, E4_ContestMons + 1
+	ld e, (E4_ContestMonsEnd - E4_ContestMons) / 5
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftruefwd .loop
+	ld hl, Blue_ContestMons + 1
+	ld e, (Blue_ContestMonsEnd - Blue_ContestMons) / 5
+	checkevent EVENT_BEAT_BLUE
+	iftruefwd .loop
 	ld hl, ContestMons + 1
 	ld e, (ContestMonsEnd - ContestMons) / 5
 .loop
@@ -1361,6 +1369,12 @@ _TryWildEncounter_BugContest:
 	cp 100 << 1
 	jr nc, .loop
 	srl a
+	ld hl, E4_ContestMons
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftruefwd .CheckMon
+	ld hl, Blue_ContestMons
+	checkevent EVENT_BEAT_BLUE
+	iftruefwd .CheckMon
 	ld hl, ContestMons
 	ld de, 5
 .CheckMon:
@@ -1397,7 +1411,7 @@ _TryWildEncounter_BugContest:
 	call SimpleDivide
 	add d
 .GotLevel:
-	call AdjustBugLevel
+	farcall AdjustLevelForBadges
 	ld [wCurPartyLevel], a
 	xor a
 	farjp CheckRepelEffect
@@ -1421,29 +1435,6 @@ TryWildEncounter_BugContest:
 	ret
 
 INCLUDE "data/wild/bug_contest_mons.asm"
-
-INCLUDE "data/wild/badge_base_levels.asm"
-
-AdjustBugLevel:
-	cp MAX_LEVEL + 1
-	ret c
-	sub LEVEL_FROM_BADGES
-	ld b, a
-	ld a, [wBadgeBaseLevel]
-	add b
-; cap underflow at level 2
-	cp 2
-	jr c, .underflow
-	cp MAX_LEVEL
-	ret c
-; cap overflow at level 99
-	cp LEVEL_FROM_BADGES
-	ld a, MAX_LEVEL - 1
-	ret c
-; cap overflow at level 2
-.underflow
-	ld a, 2
-	ret
 
 DoBikeStep::
 	; If the bike shop owner doesn't have our number, or
