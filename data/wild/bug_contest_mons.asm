@@ -5,8 +5,8 @@ MACRO contest_mon
 ENDM
 
 ContestMons:
-if (EVENT_BEAT_ELITE_FOUR)
-; After League
+if (EVENT_BEAT_BLUE)
+; After Blue
 	;            %, species,     min,                    max
 	contest_mon 10, BUTTERFREE,  LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 4
 	contest_mon 10, BEEDRILL,    LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 4
@@ -23,8 +23,8 @@ if (EVENT_BEAT_ELITE_FOUR)
 	contest_mon  2, SCIZOR,      LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 1
 	contest_mon  2, YANMEGA,     LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 1
 	contest_mon  1, KLEAVOR,     LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 1
-elif (EVENT_BEAT_MORTY)
-; After Morty
+elif (EVENT_BEAT_ELITE_FOUR)
+; After E4
 	;            %, species,     min,                    max
 	contest_mon 10, BUTTERFREE,  LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 4
 	contest_mon 10, BEEDRILL,    LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 4
@@ -42,18 +42,18 @@ elif (EVENT_BEAT_MORTY)
 	contest_mon  5, FORRETRESS,  LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 1
 	contest_mon  5, SHUCKLE,     LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 4
 else
-	;            %, species,   min, max
-	contest_mon 15, CATERPIE,    7, 18
-	contest_mon 15, WEEDLE,      7, 18
-	contest_mon 10, METAPOD,     9, 18
-	contest_mon 10, KAKUNA,      9, 18
-	contest_mon  5, BUTTERFREE, 12, 15
-	contest_mon  5, BEEDRILL,   12, 15
-	contest_mon 10, VENONAT,    10, 16
-	contest_mon 10, PARAS,      10, 17
-	contest_mon  5, VENOMOTH,   12, 15
-	contest_mon  5, YANMA,      13, 14
-	contest_mon  5, SCYTHER,    13, 14
-	contest_mon  5, PINSIR,     13, 14
+	;            %, species,     min,                    max
+	contest_mon 15, CATERPIE,    LEVEL_FROM_BADGES - 5,  LEVEL_FROM_BADGES + 6
+	contest_mon 15, WEEDLE,      LEVEL_FROM_BADGES - 5,  LEVEL_FROM_BADGES + 6
+	contest_mon 10, METAPOD,     LEVEL_FROM_BADGES - 3,  LEVEL_FROM_BADGES + 6
+	contest_mon 10, KAKUNA,      LEVEL_FROM_BADGES - 3,  LEVEL_FROM_BADGES + 6
+	contest_mon  5, BUTTERFREE,  LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 3
+	contest_mon  5, BEEDRILL,    LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 3
+	contest_mon 10, VENONAT,     LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 4
+	contest_mon 10, PARAS,       LEVEL_FROM_BADGES - 2,  LEVEL_FROM_BADGES + 5
+	contest_mon  5, VENOMOTH,    LEVEL_FROM_BADGES + 0,  LEVEL_FROM_BADGES + 3
+	contest_mon  5, YANMA,       LEVEL_FROM_BADGES + 1,  LEVEL_FROM_BADGES + 2
+	contest_mon  5, SCYTHER,     LEVEL_FROM_BADGES + 1,  LEVEL_FROM_BADGES + 2
+	contest_mon  5, PINSIR,      LEVEL_FROM_BADGES + 1,  LEVEL_FROM_BADGES + 2
 endc
 ContestMonsEnd:
