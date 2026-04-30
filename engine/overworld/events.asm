@@ -1330,17 +1330,21 @@ GetContestLocations:
 	scf
 	ret nz
 
-	ld hl, E4_ContestMons + 1
-	ld e, (E4_ContestMonsEnd - E4_ContestMons) / 5
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftruefwd .chose_bugtable
-	ld hl, Blue_ContestMons + 1
-	ld e, (Blue_ContestMonsEnd - Blue_ContestMons) / 5
-	checkevent EVENT_BEAT_BLUE
-	iftruefwd .chose_bugtable
+;	checkevent EVENT_BEAT_ELITE_FOUR
+;	iftruefwd .chose_e4_bugtable
+;	checkevent EVENT_BEAT_BLUE
+;	iftruefwd .chose_blue_bugtable
 	ld hl, ContestMons + 1
 	ld e, (ContestMonsEnd - ContestMons) / 5
-.chose_bugtable
+;	jr .chose_bugtable
+;.chose_e4_bugtable
+;	ld hl, E4_ContestMons + 1
+;	ld e, (E4_ContestMonsEnd - E4_ContestMons) / 5
+;	jr .chose_bugtable
+;.chose_blue_bugtable
+;	ld hl, Blue_ContestMons + 1
+;	ld e, (Blue_ContestMonsEnd - Blue_ContestMons) / 5
+;.chose_bugtable
 .loop
 	ld a, [hli]
 	cp c
@@ -1370,14 +1374,20 @@ _TryWildEncounter_BugContest:
 	cp 100 << 1
 	jr nc, .loop
 	srl a
-	ld hl, E4_ContestMons
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftruefwd .CheckMon
-	ld hl, Blue_ContestMons
-	checkevent EVENT_BEAT_BLUE
-	iftruefwd .CheckMon
+;	checkevent EVENT_BEAT_ELITE_FOUR
+;	iftruefwd .CheckMonE4
+;	checkevent EVENT_BEAT_BLUE
+;	iftruefwd .CheckMonBlue
 	ld hl, ContestMons
 	ld de, 5
+;	jr .CheckMon
+;.CheckMonE4
+;	ld hl, E4_ContestMons
+;	ld de, 5
+;	jr .CheckMon
+;.CheckMonBlue
+;	ld hl, Blue_ContestMons
+;	ld de, 5
 .CheckMon:
 	sub [hl]
 	jr c, .GotMon
