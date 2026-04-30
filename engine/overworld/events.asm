@@ -1333,13 +1333,14 @@ GetContestLocations:
 	ld hl, E4_ContestMons + 1
 	ld e, (E4_ContestMonsEnd - E4_ContestMons) / 5
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iftruefwd .loop
+	iftruefwd .chose_bugtable
 	ld hl, Blue_ContestMons + 1
 	ld e, (Blue_ContestMonsEnd - Blue_ContestMons) / 5
 	checkevent EVENT_BEAT_BLUE
-	iftruefwd .loop
+	iftruefwd .chose_bugtable
 	ld hl, ContestMons + 1
 	ld e, (ContestMonsEnd - ContestMons) / 5
+.chose_bugtable
 .loop
 	ld a, [hli]
 	cp c
