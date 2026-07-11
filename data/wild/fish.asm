@@ -50,24 +50,24 @@ MACRO fishentry
 ENDM
 
 .Shore_Old:
-	fishentry 7, 75, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 15, 10, 10, KRABBY
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 20, 10, 10, KRABBY
 .Shore_Good:
-	fishentry 7, 35, 20, 20, MAGIKARP
-	fishentry 7, 45, 20, 20, KRABBY
-	fishentry 7, 10, 20, 20, KRABBY
-	fishentry 7, 10, 20, 20, CORSOLA
+	fishentry 7, 40, 20, 20, MAGIKARP
+	fishentry 7, 25, 20, 20, KRABBY
+	fishentry 7, 20, 20, 20, KRABBY
+	fishentry 7, 15, 20, 20, CORSOLA
 .Shore_Super:
-	fishentry 7, 50, 40, 40, KRABBY
-	fishentry 7, 10, 40, 40, KRABBY
+	fishentry 7, 30, 40, 40, KRABBY
+	fishentry 7, 30, 40, 40, KRABBY
 	fishentry 7, 30, 40, 40, CORSOLA
 	fishentry 7, 10, 40, 40, KINGLER
 
 .Ocean_Old:
 	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 45, 10, 10, CHINCHOU
 	fishentry 7, 45, 10, 10, TENTACOOL
+	fishentry 7, 45, 10, 10, CHINCHOU
 .Ocean_Good:
 	fishentry 7, 35, 20, 20, MAGIKARP
 	fishentry 7, 35, 20, 20, TENTACOOL
@@ -82,62 +82,62 @@ ENDM
 .Lake_Old:
 .River_Old:
 .Well_Old:
-	fishentry 7, 75, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 15, 10, 10, GOLDEEN
+	fishentry 7, 35, 10, 10, MAGIKARP
+	fishentry 7, 35, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, GOLDEEN
 .Lake_Good:
 .River_Good:
 .Well_Good:
-	fishentry 7, 35, 20, 20, MAGIKARP
-	fishentry 7, 45, 20, 20, GOLDEEN
-	fishentry 7, 10, 20, 20, GOLDEEN
-	fishentry 7, 10, 20, 20, GOLDEEN
+	fishentry 7, 40, 20, 20, MAGIKARP
+	fishentry 7, 20, 20, 20, GOLDEEN
+	fishentry 7, 20, 20, 20, GOLDEEN
+	fishentry 7, 20, 20, 20, GOLDEEN
 .Lake_Super:
 .River_Super:
-	fishentry 7, 60, 40, 40, GOLDEEN
-	fishentry 7, 10, 40, 40, GOLDEEN
+	fishentry 7, 35, 40, 40, GOLDEEN
+	fishentry 7, 35, 40, 40, GOLDEEN
 	fishentry 7, 20, 40, 40, MAGIKARP
 	fishentry 7, 10, 40, 40, SEAKING
 
 .Well_Super:
-	fishentry 7, 60, 40, 40, GOLDEEN
-	fishentry 7, 10, 40, 40, GOLDEEN
+	fishentry 7, 35, 40, 40, GOLDEEN
+	fishentry 7, 35, 40, 40, GOLDEEN
 	fishentry 7, 20, 40, 40, SHELLDER
 	fishentry 7, 10, 40, 40, SEAKING
 
 .Pond_Old:
-	fishentry 7, 75, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 15, 10, 10, POLIWAG
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 20, 10, 10, POLIWAG
 .Pond_Good:
-	fishentry 7, 35, 20, 20, MAGIKARP
-	fishentry 7, 45, 20, 20, POLIWAG
-	fishentry 7, 10, 20, 20, POLIWAG
-	fishentry 7, 10, 20, 20, POLIWAG
+	fishentry 7, 40, 20, 20, MAGIKARP
+	fishentry 7, 20, 20, 20, POLIWAG
+	fishentry 7, 20, 20, 20, POLIWAG
+	fishentry 7, 20, 20, 20, POLIWAG
 .Pond_Super:
-	fishentry 7, 60, 40, 40, POLIWAG
-	fishentry 7, 10, 40, 40, POLIWAG
-	fishentry 7, 10, 40, 40, POLIWAG
-	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 30, 40, 40, MAGIKARP
+	fishentry 7, 30, 40, 40, POLIWAG
+	fishentry 7, 30, 40, 40, POLIWAG
+	fishentry 7, 20, 40, 40, POLIWHIRL
 
 .Dratini_Old:
-	fishentry 7,  1, 10, 10, MAGIKARP
-	fishentry 7,  1, 10, 10, MAGIKARP
-	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7, 50, 10, 10, MAGIKARP
+	fishentry 7, 49, 10, 10, MAGIKARP
+	fishentry 7,  1, 10, 10, DRATINI
 .Dratini_Good:
-	fishentry 7, 70, 20, 20, MAGIKARP
-	fishentry 7, 10, 20, 20, MAGIKARP
-	fishentry 7, 10, 20, 20, MAGIKARP
+	fishentry 7, 30, 20, 20, MAGIKARP
+	fishentry 7, 30, 20, 20, MAGIKARP
+	fishentry 7, 30, 20, 20, MAGIKARP
 	fishentry 7, 10, 20, 20, DRATINI
 .Dratini_Super:
-	fishentry 7, 40, 40, 40, MAGIKARP
-	fishentry 7, 10, 40, 40, MAGIKARP
-	fishentry 7, 10, 40, 40, MAGIKARP
+	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 20, 40, 40, MAGIKARP
 	fishentry 7, 40, 40, 40, DRATINI
 
 .Qwilfish_Swarm_Old:
-	fishentry 7, 75, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 45, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
 	fishentry 7, 15, 10, 10, QWILFISH
 .Qwilfish_Swarm_Good:
 	fishentry 7, 35, 20, 20, MAGIKARP
@@ -145,10 +145,10 @@ ENDM
 	fishentry 7, 10, 20, 20, QWILFISH
 	fishentry 7, 10, 20, 20, QWILFISH
 .Qwilfish_Swarm_Super:
-	fishentry 7,  1, 40, 40, QWILFISH
-	fishentry 7,  1, 40, 40, QWILFISH
-	fishentry 7,  1, 40, 40, QWILFISH
-	fishentry 7,  1, 40, 40, QWILFISH
+	fishentry 7, 25, 40, 40, QWILFISH
+	fishentry 7, 25, 40, 40, QWILFISH
+	fishentry 7, 25, 40, 40, QWILFISH
+	fishentry 7, 25, 40, 40, QWILFISH
 
 .Remoraid_Swarm_Old:
 	fishentry 7, 75, 10, 10, MAGIKARP
@@ -160,30 +160,30 @@ ENDM
 	fishentry 7, 45, 20, 20, REMORAID
 	fishentry 7, 20, 20, 20, REMORAID
 .Remoraid_Swarm_Super:
-	fishentry 7,  1, 40, 40, REMORAID
-	fishentry 7,  1, 40, 40, REMORAID
-	fishentry 7,  1, 40, 40, REMORAID
-	fishentry 7,  1, 40, 40, REMORAID
+	fishentry 7, 25, 40, 40, REMORAID
+	fishentry 7, 25, 40, 40, REMORAID
+	fishentry 7, 25, 40, 40, REMORAID
+	fishentry 7, 25, 40, 40, REMORAID
 
 .Gyarados_Old:
-	fishentry 7,  1, 10, 10, MAGIKARP
-	fishentry 7,  1, 10, 10, MAGIKARP
-	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, MAGIKARP
 .Gyarados_Good:
 	fishentry 7, 20, 20, 90, MAGIKARP
 	fishentry 7, 20, 20, 90, MAGIKARP
 	fishentry 7, 20, 20, 10, GYARADOS
 	fishentry 7, 20, 20, 10, GYARADOS
 .Gyarados_Super:
-	fishentry 7, 70, 40, 40, MAGIKARP
-	fishentry 7, 70, 40, 40, MAGIKARP
-	fishentry 7, 30, 40, 40, GYARADOS
-	fishentry 7, 30, 40, 40, GYARADOS
+	fishentry 7, 35, 40, 40, MAGIKARP
+	fishentry 7, 35, 40, 40, MAGIKARP
+	fishentry 7, 15, 40, 40, GYARADOS
+	fishentry 7, 15, 40, 40, GYARADOS
 
 .Dratini_2_Old:
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, MAGIKARP
 .Dratini_2_Good:
 	fishentry 7, 90, 20, 20, MAGIKARP
 	fishentry 7, 90, 20, 20, MAGIKARP
@@ -210,17 +210,17 @@ ENDM
 	fishentry 7, 10, 40, 40, SEADRA
 
 .Qwilfish_Old:
-	fishentry 7, 75, 10, 10, MAGIKARP
-	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 45, 10, 10, MAGIKARP
+	fishentry 7, 40, 10, 10, MAGIKARP
 	fishentry 7, 15, 10, 10, TENTACOOL
 .Qwilfish_Good:
-	fishentry 7, 35, 20, 20, MAGIKARP
-	fishentry 7, 35, 20, 20, MAGIKARP
-	fishentry 7, 65, 20, 20, TENTACOOL
-	fishentry 7, 65, 20, 20, TENTACOOL
+	fishentry 7, 15, 20, 20, MAGIKARP
+	fishentry 7, 15, 20, 20, MAGIKARP
+	fishentry 7, 35, 20, 20, TENTACOOL
+	fishentry 7, 35, 20, 20, TENTACOOL
 .Qwilfish_Super:
-	fishentry 7, 60, 40, 40, TENTACOOL
-	fishentry 7, 10, 40, 40, TENTACOOL
+	fishentry 7, 35, 40, 40, TENTACOOL
+	fishentry 7, 35, 40, 40, TENTACOOL
 	fishentry 7, 20, 40, 40, MAGIKARP
 	fishentry 7, 10, 40, 40, QWILFISH
 

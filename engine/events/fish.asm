@@ -82,7 +82,7 @@ endr
 	inc hl      ; skip max level
 	inc hl      ; skip species
 	inc hl      ; skip form
-  dec b	      ; decrement counter
+	dec b       ; decrement counter
 	jr nc, .accumulate
 .next
 	ld h, d     ; restore encounter table
@@ -93,12 +93,12 @@ endr
 	inc hl      ; skip time of day
 	sub [hl]    ; subtract encounter weight from accumulator
 	jr c, .ok   ; if we carry, we found the encounter
+	inc hl      ; skip encounter weight
 	inc hl      ; skip min level
 	inc hl      ; skip max level
 	inc hl      ; skip species
 	inc hl      ; skip form
-	dec b
-	jr nc, .loop
+	jr .loop
 .ok
 	inc hl      ; skip encounter weight
 	ld a, [hli] ; a = min level
@@ -213,17 +213,20 @@ GetFishLocations:
 	inc hl      ; skip max level
 	ld a, [hli] ; Species
 	cp c
-	inc hl      ; skip next time of day
-;	inc hl      ; Skip Encounter Weight
-;	inc hl      ; skip min level
-;	inc hl      ; skip max level
-	jr nz, .checktable_loop
+	jr nz, .table_cleanup
 	call DexCompareWildForm
-	jr nz, .checktable_loop
+	jr nz, .table_cleanup
 
 	; Returns noncarry if species+form matches.
 	pop de
 	ret
+
+.table_cleanup
+	inc hl      ; skip next time of day
+	inc hl      ; Skip next Encounter Weight
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	jr .checktable_loop
 
 .AppendFishSet:
 	ld a, LOW(wDexAreaValidFishGroups)
