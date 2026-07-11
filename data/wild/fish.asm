@@ -25,235 +25,246 @@ FishGroups:
 	fishgroup 65 percent, (65 + 5) percent, .Staryu_Old,           .Staryu_Good,           .Staryu_Super
 	assert_table_length NUM_FISHGROUPS
 
+;MACRO fishentry
+;; % chance, species, level
+;	db \1
+;	if _NARG == 4
+;		dp \2, \3
+;		shift
+;	else
+;		dp \2
+;	endc
+;	db \3
+;ENDM
+
 MACRO fishentry
-; % chance, species, level
-	db \1
-	if _NARG == 4
-		dp \2, \3
+	db \1     ; Time of Day
+	db \2     ; Encounter Weight
+	db \3, \4 ; Min-Max Levels
+	if _NARG == 6
+		dp \5, \6 ; Species & Form
 		shift
 	else
-		dp \2
+		dp \5 ; Species
 	endc
-	db \3
 ENDM
 
 .Shore_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     KRABBY,     10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, KRABBY
 .Shore_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     KRABBY,     20
-	fishentry  90 percent + 1, KRABBY,     20
-	fishentry 100 percent,     CORSOLA,    20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, KRABBY
+	fishentry 7, 10, 20, 20, KRABBY
+	fishentry 7, 10, 20, 20, CORSOLA
 .Shore_Super:
-	fishentry  40 percent,     KRABBY,     40
-	fishentry  70 percent,     CORSOLA,    40
-	fishentry  90 percent + 1, KRABBY,     40
-	fishentry 100 percent,     KINGLER,    40
+	fishentry 7, 50, 40, 40, KRABBY
+	fishentry 7, 10, 40, 40, KRABBY
+	fishentry 7, 30, 40, 40, CORSOLA
+	fishentry 7, 10, 40, 40, KINGLER
 
 .Ocean_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     TENTACOOL,  10
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 45, 10, 10, CHINCHOU
+	fishentry 7, 45, 10, 10, TENTACOOL
 .Ocean_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     TENTACOOL,  20
-	fishentry  90 percent + 1, CHINCHOU,   20
-	fishentry 100 percent,     SHELLDER,   20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 35, 20, 20, TENTACOOL
+	fishentry 7, 20, 20, 20, CHINCHOU
+	fishentry 7, 10, 20, 20, SHELLDER
 .Ocean_Super:
-	fishentry  40 percent,     CHINCHOU,   40
-	fishentry  70 percent,     SHELLDER,   40
-	fishentry  90 percent + 1, TENTACRUEL, 40
-	fishentry 100 percent,     LANTURN,    40
+	fishentry 7, 40, 40, 40, CHINCHOU
+	fishentry 7, 30, 40, 40, SHELLDER
+	fishentry 7, 20, 40, 40, TENTACRUEL
+	fishentry 7, 10, 40, 40, LANTURN
 
 .Lake_Old:
 .River_Old:
 .Well_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     GOLDEEN,    10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, GOLDEEN
 .Lake_Good:
 .River_Good:
 .Well_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     GOLDEEN,    20
-	fishentry  90 percent + 1, GOLDEEN,    20
-	fishentry 100 percent,     GOLDEEN,    20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, GOLDEEN
+	fishentry 7, 10, 20, 20, GOLDEEN
+	fishentry 7, 10, 20, 20, GOLDEEN
 .Lake_Super:
 .River_Super:
-	fishentry  40 percent,     GOLDEEN,    40
-	fishentry  70 percent,     GOLDEEN,    40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     SEAKING,    40
+	fishentry 7, 60, 40, 40, GOLDEEN
+	fishentry 7, 10, 40, 40, GOLDEEN
+	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, SEAKING
 
 .Well_Super:
-	fishentry  40 percent,     GOLDEEN,    40
-	fishentry  70 percent,     GOLDEEN,    40
-	fishentry  90 percent + 1, SHELLDER,   40
-	fishentry 100 percent,     SEAKING,    40
+	fishentry 7, 60, 40, 40, GOLDEEN
+	fishentry 7, 10, 40, 40, GOLDEEN
+	fishentry 7, 20, 40, 40, SHELLDER
+	fishentry 7, 10, 40, 40, SEAKING
 
 .Pond_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     POLIWAG,    10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, POLIWAG
 .Pond_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     POLIWAG,    20
-	fishentry  90 percent + 1, POLIWAG,    20
-	fishentry 100 percent,     POLIWAG,    20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, POLIWAG
+	fishentry 7, 10, 20, 20, POLIWAG
+	fishentry 7, 10, 20, 20, POLIWAG
 .Pond_Super:
-	fishentry  40 percent,     POLIWAG,    40
-	fishentry  70 percent,     POLIWAG,    40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     POLIWAG,    40
+	fishentry 7, 60, 40, 40, POLIWAG
+	fishentry 7, 10, 40, 40, POLIWAG
+	fishentry 7, 10, 40, 40, POLIWAG
+	fishentry 7, 20, 40, 40, MAGIKARP
 
 .Dratini_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     MAGIKARP,   10
+	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7,  1, 10, 10, MAGIKARP
 .Dratini_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     MAGIKARP,   20
-	fishentry  90 percent + 1, MAGIKARP,   20
-	fishentry 100 percent,     DRATINI,    20
+	fishentry 7, 70, 20, 20, MAGIKARP
+	fishentry 7, 10, 20, 20, MAGIKARP
+	fishentry 7, 10, 20, 20, MAGIKARP
+	fishentry 7, 10, 20, 20, DRATINI
 .Dratini_Super:
-	fishentry  40 percent,     MAGIKARP,   40
-	fishentry  70 percent,     DRATINI,    40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     DRAGONAIR,  40
+	fishentry 7, 40, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, MAGIKARP
+	fishentry 7, 40, 40, 40, DRATINI
 
 .Qwilfish_Swarm_Old:
-	fishentry  70 percent + 1, MAGIKARP,   5
-	fishentry  85 percent + 1, MAGIKARP,   5
-	fishentry 100 percent,     QWILFISH,   5
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, QWILFISH
 .Qwilfish_Swarm_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     QWILFISH,   20
-	fishentry  90 percent + 1, QWILFISH,   20
-	fishentry 100 percent,     QWILFISH,   20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, QWILFISH
+	fishentry 7, 10, 20, 20, QWILFISH
+	fishentry 7, 10, 20, 20, QWILFISH
 .Qwilfish_Swarm_Super:
-	fishentry  40 percent,     QWILFISH,   40
-	fishentry  70 percent,     QWILFISH,   40
-	fishentry  90 percent + 1, QWILFISH,   40
-	fishentry 100 percent,     QWILFISH,   40
+	fishentry 7,  1, 40, 40, QWILFISH
+	fishentry 7,  1, 40, 40, QWILFISH
+	fishentry 7,  1, 40, 40, QWILFISH
+	fishentry 7,  1, 40, 40, QWILFISH
 
 .Remoraid_Swarm_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     REMORAID,   10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, REMORAID
 .Remoraid_Swarm_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     REMORAID,   20
-	fishentry  90 percent + 1, REMORAID,   20
-	fishentry 100 percent,     REMORAID,   20
+	fishentry 7, 25, 20, 20, MAGIKARP
+	fishentry 7, 10, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, REMORAID
+	fishentry 7, 20, 20, 20, REMORAID
 .Remoraid_Swarm_Super:
-	fishentry  40 percent,     REMORAID,   40
-	fishentry  70 percent,     REMORAID,   40
-	fishentry  90 percent + 1, REMORAID,   40
-	fishentry 100 percent,     REMORAID,   40
+	fishentry 7,  1, 40, 40, REMORAID
+	fishentry 7,  1, 40, 40, REMORAID
+	fishentry 7,  1, 40, 40, REMORAID
+	fishentry 7,  1, 40, 40, REMORAID
 
 .Gyarados_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     MAGIKARP,   10
+	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7,  1, 10, 10, MAGIKARP
+	fishentry 7,  1, 10, 10, MAGIKARP
 .Gyarados_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     MAGIKARP,   20
-	fishentry  90 percent + 1, MAGIKARP,   20
-	fishentry 100 percent,     GYARADOS,   20
+	fishentry 7, 20, 20, 90, MAGIKARP
+	fishentry 7, 20, 20, 90, MAGIKARP
+	fishentry 7, 20, 20, 10, GYARADOS
+	fishentry 7, 20, 20, 10, GYARADOS
 .Gyarados_Super:
-	fishentry  40 percent,     MAGIKARP,   40
-	fishentry  70 percent,     GYARADOS,   40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     MAGIKARP,   40
+	fishentry 7, 70, 40, 40, MAGIKARP
+	fishentry 7, 70, 40, 40, MAGIKARP
+	fishentry 7, 30, 40, 40, GYARADOS
+	fishentry 7, 30, 40, 40, GYARADOS
 
 .Dratini_2_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     MAGIKARP,   10
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
 .Dratini_2_Good:
-	fishentry  35 percent,     MAGIKARP,   10
-	fishentry  70 percent,     MAGIKARP,   10
-	fishentry  90 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     DRATINI,    10
+	fishentry 7, 90, 20, 20, MAGIKARP
+	fishentry 7, 90, 20, 20, MAGIKARP
+	fishentry 7, 10, 20, 20, DRATINI
+	fishentry 7, 10, 20, 20, DRATINI
 .Dratini_2_Super:
-	fishentry  40 percent,     MAGIKARP,   10
-	fishentry  70 percent,     DRATINI,    10
-	fishentry  90 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     DRAGONAIR,  10
+	fishentry 7, 50, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, MAGIKARP
+	fishentry 7, 30, 40, 40, DRATINI
+	fishentry 7, 10, 40, 40, DRAGONAIR
 
 .WhirlIslands_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     KRABBY,     10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, KRABBY
 .WhirlIslands_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     KRABBY,     20
-	fishentry  90 percent + 1, KRABBY,     20
-	fishentry 100 percent,     HORSEA,     20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 55, 20, 20, KRABBY
+	fishentry 7, 10, 20, 20, HORSEA
 .WhirlIslands_Super:
-	fishentry  40 percent,     KRABBY,     40
-	fishentry  70 percent,     HORSEA,     40
-	fishentry  90 percent + 1, KINGLER,    40
-	fishentry 100 percent,     SEADRA,     40
+	fishentry 7, 40, 40, 40, KRABBY
+	fishentry 7, 30, 40, 40, HORSEA
+	fishentry 7, 20, 40, 40, KINGLER
+	fishentry 7, 10, 40, 40, SEADRA
 
 .Qwilfish_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     TENTACOOL,  10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, TENTACOOL
 .Qwilfish_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     TENTACOOL,  20
-	fishentry  90 percent + 1, TENTACOOL,  20
-	fishentry 100 percent,     TENTACOOL,  20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 65, 20, 20, TENTACOOL
+	fishentry 7, 65, 20, 20, TENTACOOL
 .Qwilfish_Super:
-	fishentry  40 percent,     TENTACOOL,  40
-	fishentry  70 percent,     TENTACOOL,  40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     QWILFISH,   40
+	fishentry 7, 60, 40, 40, TENTACOOL
+	fishentry 7, 10, 40, 40, TENTACOOL
+	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, QWILFISH
 
 .Remoraid_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     POLIWAG,    10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, POLIWAG
 .Remoraid_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     POLIWAG,    20
-	fishentry  90 percent + 1, POLIWAG,    20
-	fishentry 100 percent,     POLIWAG,    20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 65, 20, 20, POLIWAG
+	fishentry 7, 65, 20, 20, POLIWAG
 .Remoraid_Super:
-	fishentry  40 percent,     POLIWAG,    40
-	fishentry  70 percent,     POLIWAG,    40
-	fishentry  90 percent + 1, MAGIKARP,   40
-	fishentry 100 percent,     REMORAID,   40
+	fishentry 7, 50, 40, 40, POLIWAG
+	fishentry 7, 20, 40, 40, POLIWAG
+	fishentry 7, 20, 40, 40, MAGIKARP
+	fishentry 7, 10, 40, 40, REMORAID
 
 .Hisuian_Qwilfish_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     TENTACOOL,  10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, TENTACOOL
 .Hisuian_Qwilfish_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     TENTACOOL,  20
-	fishentry  90 percent + 1, HORSEA,     20
-	fishentry 100 percent,     QWILFISH,   HISUIAN_FORM,   20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 35, 20, 20, TENTACOOL
+	fishentry 7, 20, 20, 20, HORSEA
+	fishentry 7, 10, 20, 20, QWILFISH, HISUIAN_FORM
 .Hisuian_Qwilfish_Super:
-	fishentry  40 percent,     TENTACRUEL, 40
-	fishentry  70 percent,     SEADRA,     40
-	fishentry  90 percent + 1, QWILFISH,   HISUIAN_FORM,   40
-	fishentry 100 percent,     OVERQWIL,   40
+	fishentry 7, 40, 40, 40, TENTACRUEL
+	fishentry 7, 30, 40, 40, SEADRA
+	fishentry 7, 20, 40, 40, QWILFISH, HISUIAN_FORM
+	fishentry 7, 10, 40, 40, OVERQWIL
 
 .Staryu_Old:
-	fishentry  70 percent + 1, MAGIKARP,   10
-	fishentry  85 percent + 1, MAGIKARP,   10
-	fishentry 100 percent,     KRABBY,     10
+	fishentry 7, 75, 10, 10, MAGIKARP
+	fishentry 7, 10, 10, 10, MAGIKARP
+	fishentry 7, 15, 10, 10, KRABBY
 .Staryu_Good:
-	fishentry  35 percent,     MAGIKARP,   20
-	fishentry  70 percent,     KRABBY,     20
-	fishentry  90 percent + 1, KRABBY,     20
-	fishentry 100 percent,     STARYU,     20
+	fishentry 7, 35, 20, 20, MAGIKARP
+	fishentry 7, 45, 20, 20, KRABBY
+	fishentry 7, 10, 20, 20, KRABBY
+	fishentry 7, 10, 20, 20, STARYU
 .Staryu_Super:
-	fishentry  40 percent,     KRABBY,     40
-	fishentry  70 percent,     STARYU,     40
-	fishentry  90 percent + 1, KRABBY,     40
-	fishentry 100 percent,     KINGLER,    40
+	fishentry 7, 50, 40, 40, KRABBY
+	fishentry 7, 10, 40, 40, KRABBY
+	fishentry 7, 30, 40, 40, STARYU
+	fishentry 7, 10, 40, 40, KINGLER

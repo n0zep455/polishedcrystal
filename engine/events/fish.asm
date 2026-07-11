@@ -65,23 +65,48 @@ endr
 	ld l, a
 
 	; Compare the encounter chance to select a Pokemon.
-	call Random
+	ld c, 0 ; accumulator
+	ld d, h ; Save encounter table pointer
+	ld e, l ; in 'de'
+	ld a, b ; set counter b to 3 if it's an old rod
+	ld b, 3 ;
+	cp 0    ; 
+	jr z, .accumulate
+	inc b   ; increment to 4 for good & super rod
+.accumulate
+	inc hl      ; skip time of day
+	ld a, c     ; load accumulator to a
+	add [hl]    ; add encounter weight
+	ld c, a     ; place accumulator back in c
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	inc hl      ; skip species
+	inc hl      ; skip form
+  dec b	      ; decrement counter
+	jr nc, .accumulate
+.next
+	ld h, d     ; restore encounter table
+	ld l, e     ; restore encounter table
+	ld a, c     ; load accumulator to a
+	call RandomRange
 .loop
-	cp [hl]
-	inc hl
-	jr z, .ok
-	jr c, .ok
-	inc hl
-	inc hl
-	inc hl
-	jr .loop
+	inc hl      ; skip time of day
+	sub [hl]    ; subtract encounter weight from accumulator
+	jr c, .ok   ; if we carry, we found the encounter
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	inc hl      ; skip species
+	inc hl      ; skip form
+	dec b
+	jr nc, .loop
 .ok
-	ld a, [hli]
-	ld c, a
-
-	ld a, [hli]
-	ld b, a
-	ld d, [hl]
+	inc hl      ; skip encounter weight
+	ld a, [hli] ; a = min level
+	ld d, a     ; d = min level
+	inc hl      ; skip max level
+	ld a, [hli] ; a = species
+	ld c, a     ; c = species
+	ld b, [hl]  ; b = form
 	ret
 
 .no_bite
@@ -183,11 +208,15 @@ GetFishLocations:
 	ret
 
 .continue
-	ld a, [hli]
+	inc hl      ; Skip Encounter Weight
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	ld a, [hli] ; Species
 	cp c
-	ld a, [hli]
-	inc hl ; skip level
-	inc hl ; skip (next entry's) encounter rate
+	inc hl      ; skip next time of day
+;	inc hl      ; Skip Encounter Weight
+;	inc hl      ; skip min level
+;	inc hl      ; skip max level
 	jr nz, .checktable_loop
 	call DexCompareWildForm
 	jr nz, .checktable_loop
