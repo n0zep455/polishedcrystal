@@ -148,15 +148,15 @@ RockMonEncounter:
 
 	ld hl, RockMonMaps
 	call GetTreeMonSet
-	jr nc, .no_battle
+	;jr nc, .no_battle
 
 	call GetTreeMons
-	jr nc, .no_battle
+	;jr nc, .no_battle
 
 	ld a, 10
 	call RandomRange
 	cp 4
-	jr nc, .no_battle
+	;jr nc, .no_battle
 
 	call SelectTreeMon
 	ret c
@@ -311,10 +311,11 @@ GetTreeOrRockLocations:
 	add 1 ; no-optimize a++|a-- (sets carry if we found the -1 terminator)
 	ret c
 
-	ld a, [hli]
+	inc hl      ; Skip Encounter Weight
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	ld a, [hli] ; Species
 	cp c
-	ld a, [hli]
-	inc hl ; skip level
 	jr nz, .CheckTable
 	call DexCompareWildForm
 	jr nz, .CheckTable
@@ -395,16 +396,40 @@ GetTreeMon:
 	; fallthrough
 
 SelectTreeMon:
-; Read a TreeMons table and pick one monster at random.
-	ld a, 100
+	; Compare the encounter chance to select a Pokemon.
+	ld c, 0 ; accumulator
+	ld d, h ; Save encounter table pointer
+	ld e, l ; in 'de'
+	ld a, b ; set counter b to 3 if it's an old rod
+	ld b, 3 ;
+	cp 0    ; 
+	jr z, .accumulate
+	inc b   ; increment to 4 for good & super rod
+.accumulate
+	inc hl      ; skip time of day
+	ld a, c     ; load accumulator to a
+	add [hl]    ; add encounter weight
+	ld c, a     ; place accumulator back in c
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	inc hl      ; skip species
+	inc hl      ; skip form
+	dec b       ; decrement counter
+	jr nc, .accumulate
+.next
+	ld h, d     ; restore encounter table
+	ld l, e     ; restore encounter table
+	ld a, c     ; load accumulator to a
 	call RandomRange
 .loop
-	sub [hl]
-	jr c, .ok
-	inc hl
-	inc hl
-	inc hl
-	inc hl
+	inc hl      ; skip time of day
+	sub [hl]    ; subtract encounter weight from accumulator
+	jr c, .ok   ; if we carry, we found the encounter
+	inc hl      ; skip encounter weight
+	inc hl      ; skip min level
+	inc hl      ; skip max level
+	inc hl      ; skip species
+	inc hl      ; skip form
 	jr .loop
 
 .ok
@@ -415,12 +440,16 @@ SelectTreeMon:
 	push hl
 	farcall SetBadgeBaseLevel
 	pop hl
-	ld a, [hli]
+
+	ld a, [hli] ; a = min level
+	ld d, a     ; d = min level
+	inc hl      ; skip max level
+	ld a, [hli] ; a = species
 	ld [wTempWildMonSpecies], a
 	ld a, [hli]
 	ld [wCurForm], a
 	ld [wWildMonForm], a
-	ld a, [hl]
+	ld a, d
 	farcall AdjustLevelForBadges
 	ld [wCurPartyLevel], a
 	scf

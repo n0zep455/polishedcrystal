@@ -65,9 +65,9 @@ ENDM
 	fishentry 7, 10, 40, 40, KINGLER
 
 .Ocean_Old:
-	fishentry 7, 10, 10, 10, MAGIKARP
-	fishentry 7, 45, 10, 10, TENTACOOL
-	fishentry 7, 45, 10, 10, CHINCHOU
+	fishentry 7, 40, 10, 10, MAGIKARP
+	fishentry 7, 30, 10, 10, TENTACOOL
+	fishentry 7, 30, 10, 10, CHINCHOU
 .Ocean_Good:
 	fishentry 7, 35, 20, 20, MAGIKARP
 	fishentry 7, 35, 20, 20, TENTACOOL

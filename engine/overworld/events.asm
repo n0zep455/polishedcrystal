@@ -1332,13 +1332,13 @@ GetContestLocations:
 
 	call FetchBugTables
 .loop
-	inc hl ; skip time of day
-	ld a, [hli] ; encounter weight
-	cp c
-	inc hl ; skip level min
-	inc hl ; skip level max
-	ld a, [hli] ; Species
-	inc hl ; skip form
+	inc hl                     ; skip time of day
+	ld a, [hli]                ; encounter weight
+	cp c                       ;
+	inc hl                     ; skip level min
+	inc hl                     ; skip level max
+	ld a, [hli]                ; species
+	inc hl                     ; skip form
 	jr nz, .next
 	call DexCompareWildForm
 	jr z, .found_mon
@@ -1356,92 +1356,70 @@ _TryWildEncounter_BugContest:
 	call TryWildEncounter_BugContest
 	ret nc
 
-; Initialize badge level scaling.
-	farcall SetBadgeBaseLevel ; Set wBadgeBaseLevel
-; Load the correct bug contest table
-	call LoadContestMonTable  ; Set hl
-	ld b, 0  ;  b = RandomRange maximum
-; Get time of day
-; Morning 0 -> 1
-; Day     1 -> 2
-; Night   2 -> 4
-	farcall GetTimeOfDayNotEve ; Set a
-	ld c, 1  ;  c = Time of Day Mask
-	ld de, 5 ; de = Table Increment value
-.time_of_day_mask
-	cp 0
-	jr z, .accumulate
-	sla c
-	sub 1
-	jr .time_of_day_mask
-; Accumulate weight of valid table entries for time of day
+	farcall SetBadgeBaseLevel  ; Initialize badge level scaling
+	call LoadContestMonTable   ; Load contest table to hl
+	ld b, 0                    ;  b = encounter weight
+	farcall GetTimeOfDayNotEve ; Set time of day to 0, 1, or 2
+	ld c, 1                    ;  c = Time of Day Mask
+	ld de, 5                   ; de = Table Increment value
+
+.timeloop
+	cp 0                       ; compare time of day to 0
+	jr z, .accumulate          ; if time of day is 0, jump to accumulate
+	sla c                      ; otherwise, left shit c
+	dec a                      ; decrement a by 1
+	jr .timeloop               ; continue timeloop
+
 .accumulate
-	; Load time of day mask into a
-	ld a, [hli]
-	; Time of Day BITAND Time of Day Mask
-	and c
-	; If the result is zero, the Mon cannot be found at the current time of day
-	; jump to next_row operation
-	jr z, .next_row
-	; Set a to b (accumulate)
-	ld a, b
-	add [hl]
-	ld b, a
-.next_row
-	; Increment hl to next row
-	add hl, de
-	; Set a to [hl]
-	ld a, [hl]
-	; If [hl] is -1, continue, otherwise keep accumulating.
-	cp -1
-	jr nz, .accumulate
-; Load the correct bug contest table once more
-	call LoadContestMonTable
-; Pick a random value from 0 to RandomMax
-	ld a, b
-	call RandomRange
-	ld b, a
+	ld a, [hli]                ; Get the bitwise AND between the time of day a = time of day mask
+	and c                      ; for the current encounter and the time of day mask in register c.
+	jr z, .skiprow             ; A zero result means the mon can't be found at the current time.
+	ld a, b                    ;
+	add [hl]                   ; If the encounter is at a valid time of day, add the encounter
+	ld b, a                    ; weight to the accumulator.
+
+.skiprow
+	add hl, de                 ; Skip to the next row of the table.
+	ld a, [hl]                 ;
+	cp -1                      ; If the current table entry is -1, we have reached the end of the
+	jr nz, .accumulate         ; table and can continue.
+
+	call LoadContestMonTable   ; Load contest table to hl
+	ld a, b                    ;
+	call RandomRange           ; Call RandomRange to get value 0 to (accumulator - 1)
+	ld b, a                    ;
+
 .CheckMon:
-	; Load time of day mask into a
-	ld a, [hli]
-	; Time of Day BITAND Time of Day Mask
-	and c
-	; If the result is zero, skip
-	jr z, .SkipMon
-	; Otherwise, the next hl value is the encounter weight
-	; subtract that weight from the RandomRange result
-	; Load RandomResult to a
-	ld a, b
-	sub [hl]
-	; if the subtraction forced a carry, then skip to GotMon
-	; otherwise we go to the next row and CheckMon again
-	jr c, .GotMon
-	; Update b with the result of a - hl
+	ld a, [hli]                ; Get the bitwise AND between the time of day a = time of day mask
+	and c                      ; for the current encounter and the time of day mask in register c.
+	jr z, .SkipMon             ; A zero result means the mon can't be found at the current time.
+	ld a, b 	               ; Otherwise, the next hl value is the encounter weight.
+	sub [hl]	               ; Subtract that weight from the RandomRange result
+	jr c, .GotMon              ; If the subtraction forced a carry, then jump to GotMon, otherwise SkipMon
 	ld b, a
+
 .SkipMon
-	; Increment hl to next row
 	add hl, de
 	jr .CheckMon
+
 .GotMon:
-	inc hl
-; Min level
-	ld a, [hli]
-	ld d, a
-; Max level
-	ld a, [hli]
-	sub d
-	jr nz, .RandomLevel
-; If min and max are the same.
-	ld a, d
-	jr .GotLevel
+	inc hl                     ; Increment to Min Level
+	ld a, [hli]                ;
+	ld d, a                    ;  d = Min Level
+	ld a, [hli]                ;  a = Max Level
+	sub d                      ;
+	jr nz, .RandomLevel        ; If Min != Max, generate a random level
+	ld a, d                    ; if Min == Max, we don't need to
+	jr .GotLevel               ;
+
 .RandomLevel:
-; Get a random level between the min and max.
 	ld c, a
 	inc c
 	call Random
 	ldh a, [hRandomAdd]
 	call SimpleDivide
 	add d
+
 .GotLevel:
 	ld b, a
 ; Species

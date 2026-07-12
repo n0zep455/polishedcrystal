@@ -14,117 +14,147 @@ TreeMons:
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
-; Two tables each (normal, rare).
+;MACRO tree_mon
+;; %, species, level
+;	db \1
+;	if _NARG == 4
+;		dp \2, \3
+;		shift
+;	else
+;		dp \2
+;	endc
+;	db \3
+;ENDM
 
 MACRO tree_mon
-; %, species, level
-	db \1
-	if _NARG == 4
-		dp \2, \3
+	db \1     ; Time of Day
+	db \2     ; Encounter Weight
+	db \3, \4 ; Min-Max Levels
+	if _NARG == 6
+		dp \5, \6 ; Species & Form
 		shift
 	else
-		dp \2
+		dp \5 ; Species
 	endc
-	db \3
 ENDM
 
 TreeMonSet_City:
 TreeMonSet_Canyon:
-	tree_mon 80, SPEAROW,    10
-	tree_mon 20, AIPOM,      10
+	tree_mon 7, 50, 10, 10, SPEAROW
+	tree_mon 7, 30, 10, 10, AIPOM
+	tree_mon 7, 20, 10, 10, HERACROSS
 	db -1
-	; rare
-	tree_mon 50, SPEAROW,    10
-	tree_mon 30, HERACROSS,  10
-	tree_mon 20, AIPOM,      10
+	tree_mon 7, 50, 10, 10, SPEAROW
+	tree_mon 7, 30, 10, 10, AIPOM
+	tree_mon 7, 20, 10, 10, HERACROSS
 	db -1
 
 TreeMonSet_Town:
-	tree_mon 65, SPEAROW,    10
-	tree_mon 15, EKANS,      10
-	tree_mon 20, AIPOM,      10
+	tree_mon 7, 25, 10, 10, SPEAROW
+	tree_mon 7, 25, 10, 10, EKANS
+	tree_mon 7, 25, 10, 10, AIPOM
+	tree_mon 7, 25, 10, 10, HERACROSS
 	db -1
-	; rare
-	tree_mon 60, SPEAROW,    10
-	tree_mon 30, HERACROSS,  10
-	tree_mon 10, MEOWTH,     10
+	tree_mon 7, 25, 10, 10, SPEAROW
+	tree_mon 7, 25, 10, 10, EKANS
+	tree_mon 7, 25, 10, 10, AIPOM
+	tree_mon 7, 25, 10, 10, HERACROSS
 	db -1
 
 TreeMonSet_Route:
-	tree_mon 50, HOOTHOOT,   10
-	tree_mon 15, SPINARAK,   10
-	tree_mon 15, LEDYBA,     10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 30, 10, 10, HOOTHOOT
+	tree_mon 7, 20, 10, 10, SPINARAK
+	tree_mon 7, 20, 10, 10, LEDYBA
+	tree_mon 7, 10, 10, 10, EXEGGCUTE
+	tree_mon 7, 10, 10, 10, MURKROW
+	tree_mon 7, 10, 10, 10, PINECO
 	db -1
-	; rare
-	tree_mon 40, MURKROW,    10
-	tree_mon 40, PINECO,     10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 30, 10, 10, HOOTHOOT
+	tree_mon 7, 20, 10, 10, SPINARAK
+	tree_mon 7, 20, 10, 10, LEDYBA
+	tree_mon 7, 10, 10, 10, EXEGGCUTE
+	tree_mon 7, 10, 10, 10, MURKROW
+	tree_mon 7, 10, 10, 10, PINECO
 	db -1
 
 TreeMonSet_Kanto:
-	tree_mon 65, HOOTHOOT,   10
-	tree_mon 15, EKANS,      10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 30, 10, 10, HOOTHOOT
+	tree_mon 7, 20, 10, 10, EKANS
+	tree_mon 7, 20, 10, 10, EXEGGCUTE
+	tree_mon 7, 15, 10, 10, MURKROW
+	tree_mon 7, 15, 10, 10, PINECO
 	db -1
-	; rare
-	tree_mon 40, MURKROW,    10
-	tree_mon 40, PINECO,     10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 30, 10, 10, HOOTHOOT
+	tree_mon 7, 20, 10, 10, EKANS
+	tree_mon 7, 20, 10, 10, EXEGGCUTE
+	tree_mon 7, 15, 10, 10, MURKROW
+	tree_mon 7, 15, 10, 10, PINECO
 	db -1
 
 TreeMonSet_Lake:
-	tree_mon 65, HOOTHOOT,   10
-	tree_mon 15, VENONAT,    10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 40, 10, 10, HOOTHOOT
+	tree_mon 7, 30, 10, 10, VENONAT
+	tree_mon 7, 20, 10, 10, EXEGGCUTE
+	tree_mon 7, 10, 10, 10, PINECO
 	db -1
-	; rare
-	tree_mon 50, HOOTHOOT,   10
-	tree_mon 30, PINECO,     10
-	tree_mon 20, EXEGGCUTE,  10
+	tree_mon 7, 40, 10, 10, HOOTHOOT
+	tree_mon 7, 30, 10, 10, VENONAT
+	tree_mon 7, 20, 10, 10, EXEGGCUTE
+	tree_mon 7, 10, 10, 10, PINECO
 	db -1
 
 TreeMonSet_Forest:
-	tree_mon 50, HOOTHOOT,   10
-	tree_mon 30, PINECO,     10
-	tree_mon 10, NOCTOWL,    10
-	tree_mon  5, BUTTERFREE, 10
-	tree_mon  5, BEEDRILL,   10
+	tree_mon 7, 20, 10, 10, HOOTHOOT
+	tree_mon 7, 15, 10, 10, CATERPIE
+	tree_mon 7, 15, 10, 10, WEEDLE
+	tree_mon 7, 10, 10, 10, METAPOD
+	tree_mon 7, 10, 10, 10, KAKUNA
+	tree_mon 7, 15, 10, 10, PINECO
+	tree_mon 7,  5, 10, 10, NOCTOWL
+	tree_mon 7,  5, 10, 10, BUTTERFREE
+	tree_mon 7,  5, 10, 10, BEEDRILL
 	db -1
-	; rare
-	tree_mon 60, HOOTHOOT,   10
-	tree_mon 15, CATERPIE,   10
-	tree_mon 15, WEEDLE,     10
-	tree_mon  5, METAPOD,    10
-	tree_mon  5, KAKUNA,     10
+	tree_mon 7, 20, 10, 10, HOOTHOOT
+	tree_mon 7, 15, 10, 10, CATERPIE
+	tree_mon 7, 15, 10, 10, WEEDLE
+	tree_mon 7, 10, 10, 10, METAPOD
+	tree_mon 7, 10, 10, 10, KAKUNA
+	tree_mon 7, 15, 10, 10, PINECO
+	tree_mon 7,  5, 10, 10, NOCTOWL
+	tree_mon 7,  5, 10, 10, BUTTERFREE
+	tree_mon 7,  5, 10, 10, BEEDRILL
 	db -1
 
 TreeMonSet_Apricorns:
-	tree_mon 50, SPEAROW,               10
-	tree_mon 20, EKANS,                 10
-	tree_mon 20, AIPOM,                 10
-	tree_mon 10, VOLTORB, HISUIAN_FORM, 10
+	tree_mon 7, 30, 10, 10, SPEAROW
+	tree_mon 7, 20, 10, 10, EKANS
+	tree_mon 7, 10, 10, 10, AIPOM
+	tree_mon 7, 10, 10, 10, VOLTORB, HISUIAN_FORM
+	tree_mon 7, 15, 10, 10, HERACROSS
+	tree_mon 7, 15, 10, 10, MEOWTH
 	db -1
-	; rare
-	tree_mon 40, SPEAROW,               10
-	tree_mon 20, VOLTORB, HISUIAN_FORM, 10
-	tree_mon 20, HERACROSS,             10
-	tree_mon 20, MEOWTH,                10
+	tree_mon 7, 30, 10, 10, SPEAROW
+	tree_mon 7, 20, 10, 10, EKANS
+	tree_mon 7, 10, 10, 10, AIPOM
+	tree_mon 7, 10, 10, 10, VOLTORB, HISUIAN_FORM
+	tree_mon 7, 15, 10, 10, HERACROSS
+	tree_mon 7, 15, 10, 10, MEOWTH
 	db -1
 
 TreeMonSet_NoisyForest:
-	tree_mon 60, PINECO,                  LEVEL_FROM_BADGES - 3
-	tree_mon  5, FORRETRESS,              LEVEL_FROM_BADGES + 2
-	tree_mon 35, ELECTRODE, HISUIAN_FORM, LEVEL_FROM_BADGES + 0
+	tree_mon 7, 30, LEVEL_FROM_BADGES - 3, LEVEL_FROM_BADGES - 3, PINECO
+	tree_mon 7, 20, LEVEL_FROM_BADGES - 3, LEVEL_FROM_BADGES - 3, VOLTORB, HISUIAN_FORM
+	tree_mon 7, 20, LEVEL_FROM_BADGES + 2, LEVEL_FROM_BADGES + 2, FORRETRESS
+	tree_mon 7, 20, LEVEL_FROM_BADGES + 0, LEVEL_FROM_BADGES + 0, ELECTRODE, HISUIAN_FORM
 	db -1
-	; rare
-	tree_mon 60, ELECTRODE, HISUIAN_FORM, LEVEL_FROM_BADGES + 0
-	tree_mon 30, PINECO,                  LEVEL_FROM_BADGES - 2
-	tree_mon 10, FORRETRESS,              LEVEL_FROM_BADGES + 3
+	tree_mon 7, 30, LEVEL_FROM_BADGES - 3, LEVEL_FROM_BADGES - 3, PINECO
+	tree_mon 7, 20, LEVEL_FROM_BADGES - 3, LEVEL_FROM_BADGES - 3, VOLTORB, HISUIAN_FORM
+	tree_mon 7, 20, LEVEL_FROM_BADGES + 2, LEVEL_FROM_BADGES + 2, FORRETRESS
+	tree_mon 7, 20, LEVEL_FROM_BADGES + 0, LEVEL_FROM_BADGES + 0, ELECTRODE, HISUIAN_FORM
 	db -1
 
 TreeMonSet_Rock:
-	tree_mon 70, KRABBY,     15
-	tree_mon 25, GEODUDE,    15
-	tree_mon  5, SHUCKLE,    15
+	tree_mon 7, 70, 15, 15, KRABBY
+	tree_mon 7, 25, 15, 15, GEODUDE
+	tree_mon 7,  5, 15, 15, SHUCKLE
 	db -1
