@@ -403,7 +403,7 @@ TrainerPicnickerGina1:
 	jumpstd phonefullf
 
 OfficerfMaraScript:
-	checktime 1 << NITE
+	checktime NITE
 	iffalse_jumptextfaceplayer OfficerfMaraDaytimeText
 	checkevent EVENT_BEAT_OFFICERF_MARA
 	iftrue_jumptextfaceplayer OfficerfMaraAfterText

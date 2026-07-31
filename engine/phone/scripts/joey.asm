@@ -7,7 +7,7 @@ JoeyPhoneScript1:
 	iftruefwd .NotMonday
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd JoeyMondayAfternoon
 
 .NotMonday:

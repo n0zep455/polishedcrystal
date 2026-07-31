@@ -7,7 +7,7 @@ VancePhoneScript1:
 	iftruefwd .NotWednesday
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd VanceWednesdayNight
 
 .NotWednesday:

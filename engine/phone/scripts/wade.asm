@@ -9,7 +9,7 @@ WadePhoneScript1:
 	iftruefwd .HasItem
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd WadeTuesdayNight
 
 .NotTuesday:

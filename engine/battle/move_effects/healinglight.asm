@@ -21,7 +21,7 @@ BattleCommand_healweather:
 	cp GRASS
 	jr z, .synthesis_anim
 	ld a, [wTimeOfDay]
-	cp NITE
+	cp ToD_NITE
 	jr nc, .moonlight_anim
 	xor a ; Morning Sun anim
 	jr .got_anim

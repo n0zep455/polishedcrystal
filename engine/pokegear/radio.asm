@@ -213,7 +213,7 @@ OaksPkmnTalk4:
 	inc hl ; skip map number
 	inc hl ; skip encounter rate
 	; Generate a number, either 0, 1, or 2, to choose a time of day.
-	; (Disallows EVE.)
+	; (Disallows ToD_EVE.)
 .loop2
 	call Random
 	and 3 ; no-optimize a & X == X

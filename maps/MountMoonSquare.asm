@@ -40,7 +40,7 @@ ClefairyDance:
 	iftrue DoNothingScript
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, DoNothingScript
-	checktime 1 << NITE
+	checktime NITE
 	iffalse DoNothingScript
 	appear MOUNTMOONSQUARE_CLEFAIRY1
 	appear MOUNTMOONSQUARE_CLEFAIRY2

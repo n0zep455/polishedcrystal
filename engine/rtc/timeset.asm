@@ -546,7 +546,7 @@ PlaceCaughtTimeOfDayString::
 	rlca
 	rlca
 	rlca
-	cp DAY + 1
+	cp ToD_DAY + 1
 	ld de, MORN_String
 	jr c, .print
 	ld de, DAY_String

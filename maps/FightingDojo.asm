@@ -56,7 +56,7 @@ ENDM
 	ifequal SATURDAY, .Saturday
 
 .Sunday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .SundayNight
 .SundayMorningAndDay
 	rematch 1, JASMINE, 3, 6, RIGHT, RED
@@ -67,7 +67,7 @@ ENDM
 	endcallback
 
 .Monday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .MondayNight
 .MondayMorningAndDay
 	rematch 1, FALKNER, 3, 5, RIGHT, BLUE
@@ -81,7 +81,7 @@ ENDM
 	endcallback
 
 .Tuesday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .TuesdayNight
 .TuesdayMorningAndDay
 	rematch 1, PRYCE, 3, 6, RIGHT, BROWN
@@ -95,9 +95,9 @@ ENDM
 	endcallback
 
 .Wednesday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .WednesdayMorning
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .WednesdayNight
 .WednesdayDay
 	rematch 1, BROCK, 3, 7, RIGHT, BROWN
@@ -113,9 +113,9 @@ ENDM
 	endcallback
 
 .Thursday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .ThursdayMorning
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .ThursdayNight
 .ThursdayDay
 	checkevent EVENT_BEAT_PALMER
@@ -131,9 +131,9 @@ ENDM
 	endcallback
 
 .Friday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .FridayMorning
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .FridayNight
 .FridayDay
 	checkevent EVENT_BEAT_YELLOW
@@ -149,9 +149,9 @@ ENDM
 	endcallback
 
 .Saturday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .SaturdayMorning
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .SaturdayNight
 .SaturdayDay
 	rematch 1, WHITNEY, 3, 6, RIGHT, RED

@@ -9,7 +9,7 @@ DanaPhoneScript1:
 	iftruefwd .HasThunderstone
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd DanaThursdayNight
 
 .NotThursday:

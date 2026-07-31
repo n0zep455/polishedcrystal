@@ -512,9 +512,9 @@ DuskBallMultiplier:
 	jr z, .dusk
 
 	ld a, [wTimeOfDay]
-	cp 1 << EVE
+	cp EVE
 	jr z, .dusk
-	cp 1 << NITE
+	cp NITE
 	ret nz
 
 .dusk

@@ -21,7 +21,7 @@ CeladonMansionRoofHousePharmacistScript:
 	opentext
 	writetext .IntroText
 	promptbutton
-	checktime 1 << NITE
+	checktime NITE
 	iffalse_jumpopenedtext .NotNiteText
 	writetext .StoryText
 	promptbutton

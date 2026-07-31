@@ -1022,7 +1022,7 @@ LoadMapPals:
 	ld de, 4
 	ld a, [wTimeOfDayPal]
 	and 3
-	cp NITE
+	cp ToD_NITE
 	jr c, .morn_day
 	jr z, .nite
 ; eve

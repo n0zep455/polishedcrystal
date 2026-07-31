@@ -9,7 +9,7 @@ AlanPhoneScript1:
 	iftruefwd .FireStone
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd AlanWednesdayDay
 
 .NotWednesday:

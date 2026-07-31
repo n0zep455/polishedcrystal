@@ -7,7 +7,7 @@ AnthonyPhoneScript1:
 	iftruefwd .NotFriday
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd AnthonyFridayNight
 
 .NotFriday:

@@ -52,7 +52,7 @@ NationalParkTeacher1Script:
 	endtext
 
 OfficermKeithScript:
-	checktime 1 << NITE
+	checktime NITE
 	iffalse_jumptextfaceplayer OfficermKeithDaytimeText
 	checkevent EVENT_BEAT_OFFICERM_KEITH
 	iftrue_jumptextfaceplayer OfficermKeithAfterText

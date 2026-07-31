@@ -129,10 +129,10 @@ CheckObjectTime::
 	ret
 
 .TimeOfDayValues_191e:
-	db 1 << MORN ; 1
-	db 1 << DAY  ; 2
-	db 1 << NITE ; 4
-	db 1 << EVE  ; 8
+	db MORN ; 1
+	db DAY  ; 2
+	db NITE ; 4
+	db EVE  ; 8
 
 _CopyObjectStruct::
 	ldh [hMapObjectIndexBuffer], a

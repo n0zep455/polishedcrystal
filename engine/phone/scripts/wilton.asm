@@ -9,7 +9,7 @@ WiltonPhoneScript1:
 	iftruefwd .HasItem
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd WiltonThursdayMorning
 
 .NotThursday:

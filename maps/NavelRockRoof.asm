@@ -53,7 +53,7 @@ Leaf:
 	pause 30
 	special HealParty
 	reanchormap
-	checktime 1 << NITE
+	checktime NITE
 	iffalsefwd .Sun
 	changeblock 6, 0, $4a
 	changeblock 8, 0, $4b

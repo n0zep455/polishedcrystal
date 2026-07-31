@@ -216,13 +216,13 @@ CheckHowToEvolve:
 
 .happiness_nighttime
 	ld a, [wTimeOfDay]
-	cp NITE
+	cp ToD_NITE
 	jmp c, .dont_evolve_3
 	jmp .proceed
 
 .happiness_daylight
 	ld a, [wTimeOfDay]
-	cp NITE
+	cp ToD_NITE
 	jmp nc, .dont_evolve_3
 	jmp .proceed
 
@@ -287,11 +287,11 @@ CheckHowToEvolve:
 	cp TR_MORNDAY
 	ld a, [wTimeOfDay]
 	jr z, .holding_daylight
-	cp NITE
+	cp ToD_NITE
 	jmp c, .dont_evolve_3
 	jr .check_held_item
 .holding_daylight
-	cp NITE
+	cp ToD_NITE
 	jmp nc, .dont_evolve_3
 .check_held_item
 	ld a, [wTempMonItem]

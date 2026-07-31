@@ -157,7 +157,7 @@ PlayBattleMusic:
 	call RegionCheck
 	pop hl
 	ld a, [wTimeOfDay]
-	cp NITE
+	cp ToD_NITE
 	; a = carry ? 0 : NUM_REGIONS
 	ccf
 	sbc a

@@ -1360,19 +1360,19 @@ _TryWildEncounter_BugContest:
 	call LoadContestMonTable   ; Load contest table to hl
 	ld b, 0                    ;  b = encounter weight
 	farcall GetTimeOfDayNotEve ; Set time of day to 0, 1, or 2
-	ld c, 1                    ;  c = Time of Day Mask
+	ld c, 1                    ;  c = Time
 	ld de, 5                   ; de = Table Increment value
 
 .timeloop
-	cp 0                       ; compare time of day to 0
-	jr z, .accumulate          ; if time of day is 0, jump to accumulate
-	sla c                      ; otherwise, left shit c
-	dec a                      ; decrement a by 1
-	jr .timeloop               ; continue timeloop
+	cp 0                       ; Compare Time of Day to 0
+	jr z, .accumulate          ; Jump to accumulator
+	sla c                      ; Leftshift Time
+	dec a                      ; Reduce Time of Day value
+	jr .timeloop               ; Continue timeloop
 
 .accumulate
-	ld a, [hli]                ; Get the bitwise AND between the time of day a = time of day mask
-	and c                      ; for the current encounter and the time of day mask in register c.
+	ld a, [hli]                ; Get the valid encounter times
+	and c                      ; Bitwise AND of Valid encounter times and current Time
 	jr z, .skiprow             ; A zero result means the mon can't be found at the current time.
 	ld a, b                    ;
 	add [hl]                   ; If the encounter is at a valid time of day, add the encounter
@@ -1391,10 +1391,10 @@ _TryWildEncounter_BugContest:
 
 .CheckMon:
 	ld a, [hli]                ; Get the bitwise AND between the time of day a = time of day mask
-	and c                      ; for the current encounter and the time of day mask in register c.
+	and c                      ; Bitwise AND of Valid encounter times and Time of Day
 	jr z, .SkipMon             ; A zero result means the mon can't be found at the current time.
-	ld a, b 	               ; Otherwise, the next hl value is the encounter weight.
-	sub [hl]	               ; Subtract that weight from the RandomRange result
+	ld a, b                    ; Otherwise, the next hl value is the encounter weight.
+	sub [hl]                   ; Subtract that weight from the RandomRange result
 	jr c, .GotMon              ; If the subtraction forced a carry, then jump to GotMon, otherwise SkipMon
 	ld b, a
 

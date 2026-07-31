@@ -88,7 +88,7 @@ GoldenrodUndergroundCheckDayOfWeek:
 
 .Monday:
 	disappear GOLDENRODUNDERGROUND_GRAMPS
-	checktime 1 << MORN
+	checktime MORN
 	iffalsefwd .NotMondayMorning
 	appear GOLDENRODUNDERGROUND_GRAMPS
 .NotMondayMorning:
@@ -200,7 +200,7 @@ BargainMerchantScript:
 	jumptext GoldenrodUndergroundWeAreNotOpenTodayText
 
 .CheckMorn:
-	checktime 1 << MORN
+	checktime MORN
 	iffalse_jumptext GoldenrodUndergroundWeAreNotOpenTodayText
 	pokemart MARTTYPE_BARGAIN, 0
 

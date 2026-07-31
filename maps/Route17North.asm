@@ -21,7 +21,7 @@ Route17NorthAlwaysOnBikeCallback:
 	endcallback
 
 OfficerfJamieScript:
-	checktime 1 << NITE
+	checktime NITE
 	iffalse_jumptextfaceplayer OfficerfJamieDaytimeText
 	checkevent EVENT_BEAT_OFFICERF_JAMIE
 	iftrue_jumptextfaceplayer OfficerfJamieAfterText

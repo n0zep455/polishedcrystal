@@ -7,7 +7,7 @@ ReenaPhoneScript1:
 	iftruefwd .NotSunday
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd ReenaSundayMorning
 
 .NotSunday:

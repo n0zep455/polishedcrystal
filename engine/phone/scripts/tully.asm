@@ -9,7 +9,7 @@ TullyPhoneScript1:
 	iftruefwd .WaterStone
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd TullySundayNight
 
 .NotSunday:

@@ -47,7 +47,7 @@ SetupValerieMorningWalkCallback:
 	iffalsefwd .Appear
 	checkflag ENGINE_VALERIE_MORNING_WALK
 	iftruefwd .Disappear
-	checktime 1 << MORN
+	checktime MORN
 	iffalsefwd .Disappear
 .Appear:
 	appear BELLCHIMETRAIL_VALERIE

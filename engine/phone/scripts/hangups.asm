@@ -163,9 +163,9 @@ KenjiAnswerPhoneScript:
 	sjump PhoneScript_HangupText_Male
 
 .OnBreak:
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .Morning
-	checktime 1 << DAY
+	checktime DAY
 	iffalsefwd .Night
 	setevent EVENT_KENJI_ON_BREAK
 	farwritetext KenjiTakingABreakText

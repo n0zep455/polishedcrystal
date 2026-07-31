@@ -70,7 +70,7 @@ endr
 	ld e, l ; in 'de'
 	ld a, b ; set counter b to 3 if it's an old rod
 	ld b, 3 ;
-	cp 0    ; 
+	cp 0    ;
 	jr z, .accumulate
 	inc b   ; increment to 4 for good & super rod
 .accumulate

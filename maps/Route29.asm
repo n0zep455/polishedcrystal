@@ -107,7 +107,7 @@ Route29RefusedTutorial:
 	sjump Route29FinishTutorial
 
 Route29CooltrainerMScript:
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftrue_jumptextfaceplayer Text_WaitingForMorning
 	jumpthistextfaceplayer
 

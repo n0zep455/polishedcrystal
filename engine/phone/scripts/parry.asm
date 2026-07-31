@@ -7,7 +7,7 @@ ParryPhoneScript1:
 	iftruefwd .WantsRematch
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .WantsRematch
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd ParryFridayDay
 
 .WantsRematch:

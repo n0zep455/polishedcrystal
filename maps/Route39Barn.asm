@@ -19,8 +19,8 @@ Route39Barn_MapScriptHeader:
 	object_event  6,  3, SPRITE_MON_ICON, SPRITEMOVEDATA_POKEMON, 0, MILTANK, -1, PAL_MON_PINK, OBJECTTYPE_SCRIPT, NO_FORM, MooMoo, -1
 	object_event  5,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin1Script, -1
 	object_event  7,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin2Script, -1
-	pokemon_event  2,  2, MILTANK, SPRITEMOVEDATA_POKEMON, (1 << EVE) | (1 << NITE), PAL_MON_PINK, MoomooHappyMooText, -1
-	pokemon_event 11,  2, MILTANK, SPRITEMOVEDATA_POKEMON, (1 << EVE) | (1 << NITE), PAL_MON_AZURE, MoomooHappyMooText, -1
+	pokemon_event  2,  2, MILTANK, SPRITEMOVEDATA_POKEMON, (EVE) | (NITE), PAL_MON_PINK, MoomooHappyMooText, -1
+	pokemon_event 11,  2, MILTANK, SPRITEMOVEDATA_POKEMON, (EVE) | (NITE), PAL_MON_AZURE, MoomooHappyMooText, -1
 
 	object_const_def
 	const ROUTE39BARN_MOOMOO

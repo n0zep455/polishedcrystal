@@ -26,8 +26,8 @@ Route39_MapScriptHeader:
 	object_event 10, 38, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerPokefanmDerek1, -1
 	object_event 11, 35, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 4, GenericTrainerPokefanfRuth, -1
 	pokemon_event  3, 28, MILTANK, SPRITEMOVEDATA_POKEMON, -1, PAL_MON_PINK, Route39MiltankText, -1
-	pokemon_event  6, 27, MILTANK, SPRITEMOVEDATA_POKEMON, (1 << MORN) | (1 << DAY), PAL_MON_PINK, Route39MiltankText, -1
-	pokemon_event  4, 31, MILTANK, SPRITEMOVEDATA_POKEMON, (1 << MORN) | (1 << DAY), PAL_MON_AZURE, Route39MiltankText, -1
+	pokemon_event  6, 27, MILTANK, SPRITEMOVEDATA_POKEMON, (MORN) | (DAY), PAL_MON_PINK, Route39MiltankText, -1
+	pokemon_event  4, 31, MILTANK, SPRITEMOVEDATA_POKEMON, (MORN) | (DAY), PAL_MON_AZURE, Route39MiltankText, -1
 	pokemon_event  8, 29, MILTANK, SPRITEMOVEDATA_POKEMON, -1, PAL_MON_PINK, Route39MiltankText, -1
 	object_event 13, 23, SPRITE_PSYCHIC, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 1, GenericTrainerPsychicNorman, -1
 	fruittree_event  9, 26, FRUITTREE_ROUTE_39, CHESTO_BERRY, PAL_NPC_PURPLE
@@ -274,7 +274,7 @@ GenericTrainerPsychicNorman:
 TrainerPokefanfJaime:
 	faceplayer
 	opentext
-	checktime 1 << NITE
+	checktime NITE
 	iffalsefwd .NotNight
 	checkevent EVENT_BEAT_POKEFANF_JAIME
 	iftruefwd .Beaten

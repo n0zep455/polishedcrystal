@@ -184,9 +184,9 @@ BlackbeltKenji1Script:
 .Registered:
 	readvar VAR_KENJI_BREAK
 	ifnotequal $1, Route45NumberAcceptedM
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .Morning
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd .Night
 	checkevent EVENT_KENJI_ON_BREAK
 	iffalsefwd Route45NumberAcceptedM

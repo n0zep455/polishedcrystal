@@ -133,7 +133,7 @@ GenericTrainerGuitaristfWanda:
 	done
 
 OfficerfJennyScript:
-	checktime 1 << NITE
+	checktime NITE
 	iffalse_jumptextfaceplayer .DaytimeText
 	checkevent EVENT_BEAT_OFFICERF_JENNY
 	iftrue_jumptextfaceplayer .AfterText

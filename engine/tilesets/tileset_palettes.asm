@@ -123,7 +123,7 @@ MartSpecialCase:
 HiddenGrottoSpecialCase:
 	ld a, [wTimeOfDayPal]
 	and 3
-	cp NITE
+	cp ToD_NITE
 	ld hl, HiddenGrottoPalette
 	jr nz, .got_palette
 	ld hl, HiddenGrottoPalette + 8 palettes

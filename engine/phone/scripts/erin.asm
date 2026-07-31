@@ -7,7 +7,7 @@ ErinPhoneScript1:
 	iftruefwd .NotSaturday
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftruefwd ErinSaturdayNight
 
 .NotSaturday:

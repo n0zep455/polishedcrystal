@@ -9,7 +9,7 @@ GinaPhoneScript1:
 	iftruefwd .HasLeafStone
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd GinaSundayDay
 
 .NotSunday:

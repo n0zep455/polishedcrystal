@@ -7,7 +7,7 @@ BethPhoneScript1:
 	iftruefwd .NotFriday
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd BethFridayAfternoon
 
 .NotFriday:

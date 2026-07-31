@@ -28,7 +28,7 @@ SetupValerieAfterMorningWalkScript:
 	iffalsefwd .Disappear
 	checkflag ENGINE_VALERIE_MORNING_WALK
 	iftruefwd .Appear
-	checktime 1 << MORN
+	checktime MORN
 	iffalsefwd .Appear
 .Disappear:
 	disappear VALERIESHOUSE_VALERIE

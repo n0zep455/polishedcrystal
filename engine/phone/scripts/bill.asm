@@ -1,7 +1,7 @@
 BillPhoneScript1:
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd .daygreet
-	checktime 1 << MORN
+	checktime MORN
 	iffalsefwd .nitegreet
 	farwritetext BillPhoneMornGreetingText
 	promptbutton

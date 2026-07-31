@@ -224,7 +224,7 @@ GoldenrodCityCooltrainerF2Script:
 GoldenrodCityYoungster2Script:
 	faceplayer
 	opentext
-	checktime (1 << EVE) | (1 << NITE)
+	checktime (EVE) | (NITE)
 	iftrue_jumpopenedtext GoldenrodCityYoungster2Text
 	jumpthisopenedtext
 

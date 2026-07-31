@@ -1156,15 +1156,15 @@ CheckOnWater:
 
 GetTimeOfDayNotEve:
 	ld a, [wTimeOfDay]
-	cp EVE
+	cp ToD_EVE
 	ret nz
 	; Evening uses day encounters 60% of the time
 	; and night encounters 40%.
 	call Random
 	cp 60 percent
-	ld a, DAY
+	ld a, ToD_DAY
 	ret c
-	inc a ; NITE
+	inc a ; ToD_NITE
 	ret
 
 SetBadgeBaseLevel:

@@ -7,7 +7,7 @@ RalphPhoneScript1:
 	iftruefwd Ralph_CheckSwarm
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, Ralph_CheckSwarm
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd Ralph_WednesdayMorning
 Ralph_CheckSwarm:
 	checkflag ENGINE_FISH_SWARM

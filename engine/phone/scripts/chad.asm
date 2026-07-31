@@ -7,7 +7,7 @@ ChadPhoneScript1:
 	iftruefwd .NotFriday
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd ChadFridayMorning
 
 .NotFriday:

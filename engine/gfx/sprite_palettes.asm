@@ -282,7 +282,7 @@ LookupOBPalette:
 .check_daytimes
 	ld a, [wPalFlags]
 	bit USE_DAYTIME_PAL_F, a
-	ld a, DAY
+	ld a, ToD_DAY
 	jr nz, .daytime
 	ld a, PALSTATE_TIME_OF_DAY
 	call GetPalState

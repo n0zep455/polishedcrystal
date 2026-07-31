@@ -185,11 +185,16 @@ DEF DAY_CARE_DEPOSIT  EQU 3
 
 ; wTimeOfDay::
 	const_def
-	const MORN ; 0
-	const DAY  ; 1
-	const NITE ; 2
-	const EVE  ; 3
+	const ToD_MORN ; 0
+	const ToD_DAY  ; 1
+	const ToD_NITE ; 2
+	const ToD_EVE  ; 3
 DEF NUM_DAYTIMES EQU const_value
+
+DEF MORN EQU 1 << ToD_MORN
+DEF DAY  EQU 1 << ToD_DAY
+DEF NITE EQU 1 << ToD_NITE
+DEF EVE  EQU 1 << ToD_EVE
 
 ; wBattleAnimFlags::
 	const_def

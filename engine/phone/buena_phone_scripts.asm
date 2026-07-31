@@ -13,9 +13,9 @@ BuenaPhoneScript2:
 	sjumpfwd BuenaPhoneScript_Random2
 
 BuenaPhoneScript_CheckTimeOfDay1:
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .morn
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd .day
 	writetext BuenaPhoneNiteAnswerText
 	promptbutton
@@ -38,9 +38,9 @@ BuenaPhoneScript_AfterMidnight1:
 BuenaPhoneScript_CheckTimeOfDay2:
 	readvar VAR_HOUR
 	ifgreater 17, BuenaPhoneScript_AfterMidnight2
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .morn
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd .day
 	writetext BuenaPhoneNiteText
 	promptbutton

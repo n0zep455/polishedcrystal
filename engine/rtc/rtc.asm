@@ -7,7 +7,7 @@ GetTimeOfDay::
 
 ; hours for the time of day
 .TimesOfDay:
-	db MORN, DAY, EVE, NITE
+	db ToD_MORN, ToD_DAY, ToD_EVE, ToD_NITE
 
 StageRTCTimeForSave:
 	call UpdateTime

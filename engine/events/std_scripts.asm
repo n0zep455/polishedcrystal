@@ -61,13 +61,13 @@ PokeCenterNurseScript:
 	opentext
 	checkevent EVENT_NURSE_SAW_TRAINER_STAR
 	iftruefwd .star_center
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd .morn
-	checktime 1 << DAY
+	checktime DAY
 	iftruefwd .day
-	checktime 1 << EVE
+	checktime EVE
 	iftruefwd .eve
-	checktime 1 << NITE
+	checktime NITE
 	iftruefwd .nite
 	sjumpfwd .ok
 

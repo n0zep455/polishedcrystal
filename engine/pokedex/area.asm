@@ -29,13 +29,13 @@ Pokedex_Area:
 	assert DEXAREA_REGION_MASK == %01110000
 	swap e
 	ld a, [wTimeOfDay]
-	cp EVE
+	cp ToD_EVE
 	jr nz, .not_evening
-	ld a, DAY ; evening may have day or nite mons
+	ld a, ToD_DAY ; evening may have day or nite mons
 .not_evening
-	assert DEXAREA_MORNING == MORN
-	assert DEXAREA_DAY == DAY
-	assert DEXAREA_NIGHT == NITE
+	assert DEXAREA_MORNING == ToD_MORN
+	assert DEXAREA_DAY == ToD_DAY
+	assert DEXAREA_NIGHT == ToD_NITE
 	; combine current region and time into area mode
 	or e
 	ld e, a

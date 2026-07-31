@@ -7,7 +7,7 @@ JackPhoneScript1:
 	iftruefwd .NotMonday
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
-	checktime 1 << MORN
+	checktime MORN
 	iftruefwd JackMondayMorning
 
 .NotMonday:
