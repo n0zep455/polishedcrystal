@@ -887,7 +887,7 @@ endc
 	learnset 2, SLEEP_POWDER ; LGPE move
 	learnset 4, STUN_SPORE
 	learnset 6, POISONPOWDER
-	learnset 11, ABSORB
+	learnset 11, MEGA_DRAIN ; Absorb → Mega Drain due to low Sp. Attack.
 	learnset 17, BUG_BITE ; Fury Cutter → egg move
 	learnset 22, SPORE
 	learnset 27, SLASH
@@ -903,7 +903,7 @@ endc
 	learnset 2, SLEEP_POWDER ; LGPE move
 	learnset 4, STUN_SPORE
 	learnset 6, POISONPOWDER
-	learnset 11, ABSORB
+	learnset 11, MEGA_DRAIN ; Absorb → Mega Drain due to low Sp. Attack.
 	learnset 17, BUG_BITE ; Fury Cutter → egg move
 	learnset 22, SPORE
 	learnset 29, SLASH

@@ -7,7 +7,13 @@
 	db TINYMUSHROOM, BIG_MUSHROOM ; held items
 	dn GENDER_F50, HATCH_MEDIUM_FAST ; gender ratio, step cycles to hatch
 
-	abilities_for PARAS, EFFECT_SPORE, DRY_SKIN, DAMP
+if DEF(FAITHFUL)
+	abilities_for PARASECT, EFFECT_SPORE, DRY_SKIN, DAMP
+else
+	; Sharpness to further emphasize the claws.
+	; Prankster as hidden ability to make it actually useful.
+	abilities_for PARASECT, EFFECT_SPORE, SHARPNESS, PRANKSTER
+endc
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_PLANT ; egg groups
 

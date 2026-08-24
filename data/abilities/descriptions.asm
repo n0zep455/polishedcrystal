@@ -160,6 +160,7 @@ AbilityDescriptions:
 	dw ArmorTailDescription
 	dw MindsEyeDescription
 	dw MegaSolDescription
+	dw BotanizeDescription
 	assert_table_length NUM_ABILITIES
 
 NoAbilityDescription:
@@ -944,4 +945,9 @@ MindsEyeDescription:
 MegaSolDescription:
 	text "Uses moves as if"
 	next "harsh sun is up."
+	done
+
+BotanizeDescription:
+	text "Normal-type moves"
+	next "become Grass."
 	done
