@@ -209,24 +209,17 @@ GetFishLocations:
 
 .continue
 	inc hl      ; Skip Encounter Weight
-	inc hl      ; skip min level
-	inc hl      ; skip max level
+	inc hl      ; Skip Min Level
+	inc hl      ; Skip Max Level
 	ld a, [hli] ; Species
 	cp c
-	jr nz, .table_cleanup
+	jr nz, .checktable_loop
 	call DexCompareWildForm
-	jr nz, .table_cleanup
+	jr nz, .checktable_loop
 
 	; Returns noncarry if species+form matches.
 	pop de
 	ret
-
-.table_cleanup
-	inc hl      ; skip next time of day
-	inc hl      ; Skip next Encounter Weight
-	inc hl      ; skip min level
-	inc hl      ; skip max level
-	jr .checktable_loop
 
 .AppendFishSet:
 	ld a, LOW(wDexAreaValidFishGroups)
